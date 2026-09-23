@@ -282,6 +282,27 @@ ul{padding:0;list-style:none}
 .qa dd{font-size:14px;color:#333;margin:4px 0 0 1.2em;line-height:1.8}
 .sched{text-align:center;font-size:15px;max-width:640px;margin:0 auto}
 
+/* ---------- 常時表示の予約ボタン＋3択ポップアップ ---------- */
+.rsv__toggle{position:fixed;top:0;left:0;opacity:0;width:0;height:0;pointer-events:none}  /* fixed＝ラベル押下時にページが飛ばないように */
+.rsv__bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(237,231,227,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid #d9d3cd}
+.rsv__btn{display:flex;align-items:center;justify-content:center;max-width:560px;margin:0 auto;min-height:52px;background:#212121;color:#ede7e3;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:.06em;cursor:pointer}
+body:has(.rsv__bar){padding-bottom:84px}
+.tp__reserve .btn-reserve{cursor:pointer}
+.rsv__modal{position:fixed;inset:0;z-index:40;display:none;align-items:center;justify-content:center;padding:16px}
+.rsv__toggle:checked ~ .rsv__modal{display:flex}
+.rsv__bg{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.rsv__box{position:relative;width:100%;max-width:420px;background:#ede7e3;color:#212121;border-radius:16px;padding:22px 18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.rsv__title{font-size:18px;font-weight:700;text-align:center}
+.rsv__lead{font-size:12px;color:#5a5a5a;text-align:center;margin:6px 0 16px;line-height:1.7}
+.rsv__opt{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid #212121;border-radius:12px;padding:12px 14px;min-height:64px;margin-bottom:10px;color:#212121}
+.rsv__opt b{display:block;font-size:15px}
+.rsv__opt small{display:block;font-size:11px;color:#6a6a6a;margin-top:2px;line-height:1.5}
+.rsv__ic{flex:0 0 36px;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:#212121;color:#fff}
+.rsv__ic svg{width:22px;height:22px}
+.rsv__opt:nth-child(3) .rsv__ic,.rsv__opt:nth-child(4) .rsv__ic{background:#06c755}
+.rsv__opt:nth-child(5) .rsv__ic{background:#4a4a4a}
+.rsv__close{display:block;text-align:center;padding:12px;min-height:44px;font-size:13px;color:#6a6a6a;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+
 /* ---------- 角丸（テーマ変数 --r / --r-s。classic では 0） ---------- */
 .video__box,.tp__video,.ncard,.ncard__img,.ecard,.ecard__img,.rvcard,.rvcard__photo,.tcard__link,.gal__main,.gal__th,.store,.rrow__photo,.hero__panel img,.menu{border-radius:var(--r);overflow:hidden}
 .menu{overflow-y:auto;overflow-x:hidden}  /* 上の overflow:hidden を打ち消す（メニューはスクロールできる必要がある） */
@@ -577,7 +598,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
           <summary><span class="pr__cls">シルバークラス</span><span class="pr__course">貸し切りコース<small>– 料金表 –</small></span></summary>
           <div class="pr__row"><span class="pr__min">12時間</span><span class="pr__yen">未定</span></div><div class="pr__row"><span class="pr__min">24時間</span><span class="pr__yen">未定</span></div>
         </details></div>
-  <p class="tp__reserve"><a class="btn-reserve" href="../reserve.html">颯 を予約する（LINE）</a></p>
+  <p class="tp__reserve"><label class="btn-reserve" for="rsv-open">颯 を予約する</label></p>
 </section>
 
 <section class="sec sec--light">
@@ -625,6 +646,21 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
     <p class="ft__copy">Copyright © 2026 女性用風俗《BRAND NAME TOKYO》 All Rights Reserved.</p>
   </div>
 </footer>
+
+
+<input type="checkbox" id="rsv-open" class="rsv__toggle" aria-label="予約方法を選ぶ">
+<div class="rsv__bar"><label class="rsv__btn" for="rsv-open">颯 を予約する</label></div>
+<div class="rsv__modal" role="dialog" aria-label="予約方法を選ぶ">
+  <label class="rsv__bg" for="rsv-open"></label>
+  <div class="rsv__box">
+    <p class="rsv__title">颯 を予約する</p>
+    <p class="rsv__lead">ご希望の方法を選んでください。LINEはそのまま友だち追加に進みます。</p>
+    <a class="rsv__opt" href="../reserve.html"><span class="rsv__ic"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></span><span><b>店の公式LINEを追加</b><small>まだ決めていない・相談しながら決めたい方</small></span></a>
+    <a class="rsv__opt" href="../reserve.html"><span class="rsv__ic"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></span><span><b>颯 のLINEを追加</b><small>指名が決まっている方。本人に直接届きます</small></span></a>
+    <a class="rsv__opt" href="../reserve_web.html?cast=hayate"><span class="rsv__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8" stroke="currentColor" stroke-width="2"/></svg></span><span><b>ウェブで予約する</b><small>電話番号の認証のあと、日時とコースを送ります</small></span></a>
+    <label class="rsv__close" for="rsv-open">閉じる</label>
+  </div>
+</div>
 
 </body>
 </html>
