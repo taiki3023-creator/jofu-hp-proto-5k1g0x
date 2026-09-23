@@ -1,0 +1,9 @@
+*
+!.gitignore
+!index.html
+!price.html
+!img/
+!img/**
+!therapist/
+!therapist/**
+
