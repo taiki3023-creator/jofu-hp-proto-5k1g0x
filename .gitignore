@@ -1,9 +1,9 @@
 *
 !.gitignore
-!index.html
-!price.html
+!*.html
 !img/
 !img/**
+!news/
+!news/**
 !therapist/
 !therapist/**
-

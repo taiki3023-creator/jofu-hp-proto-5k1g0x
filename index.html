@@ -218,6 +218,8 @@ ul{padding:0;list-style:none}
 .ft__sns a{width:44px;height:44px;display:grid;place-items:center}
 .ft__sns svg{width:26px;height:26px}
 .ft__follow{font-family:Arial,sans-serif;font-size:12px;letter-spacing:.2em;margin-top:4px}
+.ft__links{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin-top:24px;font-size:12px}
+.ft__links a{display:inline-block;padding:8px 2px;min-height:36px;color:#ddd;text-decoration:underline;text-underline-offset:3px}
 .ft__license{font-size:10px;margin-top:26px;color:#ccc}
 .ft__copy{font-size:10px;color:#ccc;margin-top:4px}
 
@@ -523,17 +525,17 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
       <span class="brand__name">BRAND NAME <span class="brand__jp">東京本店</span></span>
     </a>
     <nav class="hd__nav" aria-label="主要ナビ">
-      <a href="index.html#top">TOP</a><a href="price.html">SYSTEM</a><a href="index.html#service">SERVICE</a>
+      <a href="index.html#top">TOP</a><a href="price.html">SYSTEM</a><a href="service.html">SERVICE</a><a href="schedule.html">SCHEDULE</a>
     </nav>
     <div class="hd__cta">
-      <a class="btn-line" href="#">LINE予約</a>
-      <a class="btn-line" href="#">WEB予約</a>
+      <a class="btn-line" href="reserve.html">LINE予約</a>
+      <a class="btn-line" href="reserve.html">WEB予約</a>
     </div>
     <div class="hd__tel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z" fill="currentColor"/></svg><span>050-0000-0000</span></div>
     <div class="hd__hours"><span>営業時間 <b>24時間営業</b></span><span>当日受付 10:00 - 翌04:00</span></div>
     <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="メニューを開く">
     <label for="menu-toggle" class="burger" aria-hidden="true"><i></i><i></i><i></i></label>
-    <nav class="menu" aria-label="全ページ"><ul><li><a href="index.html">TOP</a></li><li><a href="index.html">ご利用方法</a></li><li><a href="price.html">料金システム</a></li><li><a href="index.html#therapist">在籍セラピスト</a></li><li><a href="index.html">出勤情報</a></li><li><a href="index.html#ranking">ランキング</a></li><li><a href="index.html#review">口コミ</a></li><li><a href="index.html">写メ日記</a></li><li><a href="index.html">動画紹介</a></li><li><a href="index.html#news">お知らせ</a></li><li><a href="index.html">ラブホテル</a></li><li><a href="index.html">よくある質問</a></li><li><a href="index.html">求人案内</a></li><li><a href="index.html">お問い合わせ</a></li><li><a href="index.html">ご利用規約</a></li></ul></nav>
+    <nav class="menu" aria-label="全ページ"><ul><li><a href="index.html">TOP</a></li><li><a href="service.html">ご利用方法</a></li><li><a href="price.html">料金システム</a></li><li><a href="therapist/index.html">在籍セラピスト</a></li><li><a href="schedule.html">出勤情報</a></li><li><a href="ranking.html">ランキング</a></li><li><a href="review.html">口コミ</a></li><li><a href="diary.html">写メ日記</a></li><li><a href="video.html">動画紹介</a></li><li><a href="news/index.html">お知らせ</a></li><li><a href="hotel.html">ラブホテル</a></li><li><a href="faq.html">よくある質問</a></li><li><a href="recruit.html">求人案内</a></li><li><a href="contact.html">お問い合わせ</a></li><li><a href="terms.html">ご利用規約</a></li></ul></nav>
   </div>
 </header>
 
@@ -548,7 +550,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
   </div>
 </section>
 <nav class="tiles" aria-label="スマホ用ナビ">
-  <a href="#service"><b>ご利用方法</b><span>SERVICE</span></a><a href="price.html"><b>料金システム</b><span>SYSTEM</span></a><a href="#therapist"><b>セラピスト</b><span>THERAPIST</span></a><a href="#schedule"><b>出勤情報</b><span>SCHEDULE</span></a>
+  <a href="service.html"><b>ご利用方法</b><span>SERVICE</span></a><a href="price.html"><b>料金システム</b><span>SYSTEM</span></a><a href="therapist/index.html"><b>セラピスト</b><span>THERAPIST</span></a><a href="schedule.html"><b>出勤情報</b><span>SCHEDULE</span></a>
 </nav>
 
 
@@ -571,36 +573,36 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
   <div class="sec__head"><h2 class="sec__en">News</h2><div class="sec__rule" aria-hidden="true"><i></i><b></b><i></i></div><p class="sec__jp">新着情報</p></div>
   <div class="ncards">
     <article class="ncard">
-      <a class="ncard__img" href="#"><img class="ph" src="img/ryo_02.jpg" alt="姫神リョウ" loading="lazy"><span class="tag tag--red">お知らせ</span><span class="ncard__name">姫神リョウ<small>RYO HIMEGAMI</small><small class="ncard__store">– BRAND NAME 東京 –</small></span></a>
+      <a class="ncard__img" href="news/20260920-channel.html"><img class="ph" src="img/ryo_02.jpg" alt="姫神リョウ" loading="lazy"><span class="tag tag--red">お知らせ</span><span class="ncard__name">姫神リョウ<small>RYO HIMEGAMI</small><small class="ncard__store">– BRAND NAME 東京 –</small></span></a>
       <div class="ncard__body">
         <p class="ncard__date">2026.09.20</p>
-        <h3 class="ncard__title">姫神ちゃんねる（仮）を開設しました</h3>
+        <h3 class="ncard__title"><a href="news/20260920-channel.html">姫神ちゃんねる（仮）を開設しました</a></h3>
         <p class="ncard__ex">ぶーちゃんねるとのコラボ動画（前後編）を公開。後編は姫神ちゃんねるで配信中です。</p>
-        <p class="ncard__more"><a href="#">詳細 &gt;</a></p>
+        <p class="ncard__more"><a href="news/20260920-channel.html">詳細 &gt;</a></p>
       </div>
-      <a class="ncard__row" href="#"><span class="tag tag--red">NEWS</span><b>姫神ちゃんねる（仮）を開設しました</b><small>2026.09.20 &gt;</small></a>
+      <a class="ncard__row" href="news/20260920-channel.html"><span class="tag tag--red">NEWS</span><b>姫神ちゃんねる（仮）を開設しました</b><small>2026.09.20 &gt;</small></a>
     </article>
     <article class="ncard">
-      <a class="ncard__img" href="#"><img class="ph" src="img/ryo_01.jpg" alt="姫神リョウ" loading="lazy"><span class="tag tag--red">お知らせ</span><span class="ncard__name">姫神リョウ<small>RYO HIMEGAMI</small><small class="ncard__store">– BRAND NAME 東京 –</small></span></a>
+      <a class="ncard__img" href="news/20260815-book.html"><img class="ph" src="img/ryo_01.jpg" alt="姫神リョウ" loading="lazy"><span class="tag tag--red">お知らせ</span><span class="ncard__name">姫神リョウ<small>RYO HIMEGAMI</small><small class="ncard__store">– BRAND NAME 東京 –</small></span></a>
       <div class="ncard__body">
         <p class="ncard__date">2026.08.15</p>
-        <h3 class="ncard__title">著書『はじめての女風、どう選ぶ？』発売</h3>
+        <h3 class="ncard__title"><a href="news/20260815-book.html">著書『はじめての女風、どう選ぶ？』発売</a></h3>
         <p class="ncard__ex">姫神リョウ 初の著書が株式会社Sanctuary Japanより発売されました。女風の選び方を初めての方向けに解説した一冊です。</p>
-        <p class="ncard__more"><a href="#">詳細 &gt;</a></p>
+        <p class="ncard__more"><a href="news/20260815-book.html">詳細 &gt;</a></p>
       </div>
-      <a class="ncard__row" href="#"><span class="tag tag--red">NEWS</span><b>著書『はじめての女風、どう選ぶ？』発売</b><small>2026.08.15 &gt;</small></a>
+      <a class="ncard__row" href="news/20260815-book.html"><span class="tag tag--red">NEWS</span><b>著書『はじめての女風、どう選ぶ？』発売</b><small>2026.08.15 &gt;</small></a>
     </article>
     <article class="ncard">
-      <a class="ncard__img" href="#"><img class="ph" src="img/ryo_04.jpg" alt="姫神リョウ" loading="lazy"><span class="tag tag--red">お知らせ</span><span class="ncard__name">姫神リョウ<small>RYO HIMEGAMI</small><small class="ncard__store">– BRAND NAME 東京 –</small></span></a>
+      <a class="ncard__img" href="news/20260922-sample.html"><img class="ph" src="img/ryo_04.jpg" alt="姫神リョウ" loading="lazy"><span class="tag tag--red">お知らせ</span><span class="ncard__name">姫神リョウ<small>RYO HIMEGAMI</small><small class="ncard__store">– BRAND NAME 東京 –</small></span></a>
       <div class="ncard__body">
         <p class="ncard__date">2026.09.22</p>
-        <h3 class="ncard__title">オープン準備中（仮のお知らせ）</h3>
+        <h3 class="ncard__title"><a href="news/20260922-sample.html">オープン準備中（仮のお知らせ）</a></h3>
         <p class="ncard__ex">このお知らせはサンプルです。オープン日・料金・出勤情報が決まり次第、差し替えます。</p>
-        <p class="ncard__more"><a href="#">詳細 &gt;</a></p>
+        <p class="ncard__more"><a href="news/20260922-sample.html">詳細 &gt;</a></p>
       </div>
-      <a class="ncard__row" href="#"><span class="tag tag--red">NEWS</span><b>オープン準備中（仮のお知らせ）</b><small>2026.09.22 &gt;</small></a>
+      <a class="ncard__row" href="news/20260922-sample.html"><span class="tag tag--red">NEWS</span><b>オープン準備中（仮のお知らせ）</b><small>2026.09.22 &gt;</small></a>
     </article></div>
-  <p class="more"><a class="btn-more" href="#">View More <span>&gt;</span></a></p>
+  <p class="more"><a class="btn-more" href="news/index.html">View More <span>&gt;</span></a></p>
 </section>
 
 
@@ -613,7 +615,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
       <a class="tcard__link" href="therapist/himegami.html"><span class="badge badge--legend">レジェンド</span><div class="tcard__photo"><img class="ph" src="img/ryo_01.jpg" alt="姫神リョウ" loading="lazy"></div></a>
       <p class="tcard__catch">《デートコースの生みの親》</p>
       <dl class="spec"><div><dt>H</dt><dd>—</dd></div><div><dt>W</dt><dd>—</dd></div><div><dt>B</dt><dd>—</dd></div><div><dt>P</dt><dd>—</dd></div></dl>
-      <div class="sns"><a href="#" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a><a href="https://www.tiktok.com/@himegami_ryo" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="TikTok"><path d="M14 3h3c.3 2.2 1.7 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.5v3h-.5a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/himegamiryo" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@himegami-ch" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg></a><a href="https://himegamistyle.com" aria-label="Webサイト" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Webサイト"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+      <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a><a href="https://www.tiktok.com/@himegami_ryo" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="TikTok"><path d="M14 3h3c.3 2.2 1.7 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.5v3h-.5a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/himegamiryo" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@himegami-ch" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg></a><a href="https://himegamistyle.com" aria-label="Webサイト" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Webサイト"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div><p class="sns__cap">– SNS LINK –</p>
     </article></div>
 </section>
 
@@ -622,27 +624,27 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
   <div class="sec__head"><h2 class="sec__en">Events</h2><div class="sec__rule" aria-hidden="true"><i></i><b></b><i></i></div><p class="sec__jp">お知らせ・イベント</p></div>
   <div class="ecards">
     <article class="ecard">
-      <a class="ecard__img" href="#"><img class="ph" src="img/ryo_02.jpg" alt="姫神リョウ" loading="lazy"><span class="ncard__name">姫神リョウ<small class="ncard__store">– BRAND NAME 東京 –</small></span><span class="tag tag--red"><span class="pc">お知らせ</span><span class="sp">NEWS</span></span></a>
+      <a class="ecard__img" href="news/20260920-channel.html"><img class="ph" src="img/ryo_02.jpg" alt="姫神リョウ" loading="lazy"><span class="ncard__name">姫神リョウ<small class="ncard__store">– BRAND NAME 東京 –</small></span><span class="tag tag--red"><span class="pc">お知らせ</span><span class="sp">NEWS</span></span></a>
       <p class="ecard__date">2026年9月20日</p>
-      <h3 class="ecard__title">姫神ちゃんねる（仮）開設・コラボ動画 後編公開</h3>
+      <h3 class="ecard__title"><a href="news/20260920-channel.html">姫神ちゃんねる（仮）開設・コラボ動画 後編公開</a></h3>
       <p class="ecard__ex">ぶーちゃんねるとのコラボ動画を前後編で公開。前編はぶーちゃんねる、後編は姫神ちゃんねるで配信しています。</p>
-      <p class="ncard__more"><a href="#">詳細 &gt;</a></p>
+      <p class="ncard__more"><a href="news/20260920-channel.html">詳細 &gt;</a></p>
     </article>
     <article class="ecard">
-      <a class="ecard__img" href="#"><img class="ph" src="img/ryo_01.jpg" alt="姫神リョウ" loading="lazy"><span class="ncard__name">姫神リョウ<small class="ncard__store">– BRAND NAME 東京 –</small></span><span class="tag tag--red"><span class="pc">お知らせ</span><span class="sp">NEWS</span></span></a>
+      <a class="ecard__img" href="news/20260815-book.html"><img class="ph" src="img/ryo_01.jpg" alt="姫神リョウ" loading="lazy"><span class="ncard__name">姫神リョウ<small class="ncard__store">– BRAND NAME 東京 –</small></span><span class="tag tag--red"><span class="pc">お知らせ</span><span class="sp">NEWS</span></span></a>
       <p class="ecard__date">2026年8月15日</p>
-      <h3 class="ecard__title">著書『はじめての女風、どう選ぶ？』発売</h3>
+      <h3 class="ecard__title"><a href="news/20260815-book.html">著書『はじめての女風、どう選ぶ？』発売</a></h3>
       <p class="ecard__ex">姫神リョウ 初の著書。女風を初めて使う方に向けて、店とセラピストの選び方をまとめました。全89ページ。</p>
-      <p class="ncard__more"><a href="#">詳細 &gt;</a></p>
+      <p class="ncard__more"><a href="news/20260815-book.html">詳細 &gt;</a></p>
     </article>
     <article class="ecard">
-      <a class="ecard__img" href="#"><div class="ecard__banner"><p>〜準備中〜</p><p class="ecard__banner-t">オープン記念</p><p class="ecard__banner-n">SAMPLE</p><p class="ecard__banner-b">内容が決まり次第 差し替え</p></div><span class="tag tag--green"><span class="pc">イベント</span><span class="sp">EVENT</span></span></a>
+      <a class="ecard__img" href="news/20260922-open-event.html"><div class="ecard__banner"><p>〜準備中〜</p><p class="ecard__banner-t">オープン記念</p><p class="ecard__banner-n">SAMPLE</p><p class="ecard__banner-b">内容が決まり次第 差し替え</p></div><span class="tag tag--green"><span class="pc">イベント</span><span class="sp">EVENT</span></span></a>
       <p class="ecard__date">2026年9月22日</p>
-      <h3 class="ecard__title">オープン記念イベント（準備中・サンプル）</h3>
+      <h3 class="ecard__title"><a href="news/20260922-open-event.html">オープン記念イベント（準備中・サンプル）</a></h3>
       <p class="ecard__ex">このカードはサンプルです。内容が決まり次第、差し替えます。</p>
-      <p class="ncard__more"><a href="#">詳細 &gt;</a></p>
+      <p class="ncard__more"><a href="news/20260922-open-event.html">詳細 &gt;</a></p>
     </article></div>
-  <p class="more"><a class="btn-more" href="#">View More <span>&gt;</span></a></p>
+  <p class="more"><a class="btn-more" href="news/index.html#events">View More <span>&gt;</span></a></p>
 </section>
 
 
@@ -658,10 +660,10 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
         <h3 class="rrow__name">姫神リョウ</h3>
         <p class="rrow__catch">《デートコースの生みの親》</p>
         <p class="rrow__pt"><span class="coin">pt</span>— <small>pt</small></p>
-        <div class="sns"><a href="#" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a><a href="https://www.tiktok.com/@himegami_ryo" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="TikTok"><path d="M14 3h3c.3 2.2 1.7 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.5v3h-.5a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/himegamiryo" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@himegami-ch" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg></a><a href="https://himegamistyle.com" aria-label="Webサイト" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Webサイト"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+        <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a><a href="https://www.tiktok.com/@himegami_ryo" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="TikTok"><path d="M14 3h3c.3 2.2 1.7 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.5v3h-.5a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/himegamiryo" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@himegami-ch" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg></a><a href="https://himegamistyle.com" aria-label="Webサイト" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Webサイト"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div><p class="sns__cap">– SNS LINK –</p>
       </div>
     </article></div>
-  <p class="more"><a class="btn-more" href="#">View More <span>&gt;</span></a></p>
+  <p class="more"><a class="btn-more" href="ranking.html">View More <span>&gt;</span></a></p>
 </section>
 
 
@@ -684,9 +686,9 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
       <p class="rvcard__body">（この口コミはサンプルです。実際の口コミが集まり次第、差し替えます。）<br>口コミの表示項目＝投稿者・投稿日・ビジュアル／接客力／テクニック／満足度の星5段階・本文全文。</p>
       <p class="rvcard__more"><a class="btn-pill" href="therapist/himegami.html">姫神リョウ の口コミ（0件） &gt;</a></p>
     </article></div>
-  <p class="more"><a class="btn-more" href="#">View More <span>&gt;</span></a></p>
-  <div class="stores stores--n1"><a class="store" href="#"><span class="store__bg">TOKYO</span><span class="store__t"><small>BRAND NAME</small><b>東京本店</b></span><span class="store__faces"><img class="ph" src="img/ryo_01.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/ryo_02.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/ryo_03.jpg" alt="東京本店" loading="lazy"></span></a></div>
-  <div class="portals"><a href="#">ポータルサイトA</a><a href="#">ポータルサイトB（求人）</a></div>
+  <p class="more"><a class="btn-more" href="review.html">View More <span>&gt;</span></a></p>
+  <div class="stores stores--n1"><a class="store" href="store.html"><span class="store__bg">TOKYO</span><span class="store__t"><small>BRAND NAME</small><b>東京本店</b></span><span class="store__faces"><img class="ph" src="img/ryo_01.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/ryo_02.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/ryo_03.jpg" alt="東京本店" loading="lazy"></span></a></div>
+  <div class="portals"><a href="links.html">ポータルサイトA</a><a href="links.html">ポータルサイトB（求人）</a></div>
 </section>
 
 </main>
@@ -698,13 +700,14 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
     <p class="ft__tel">TEL：050-0000-0000</p>
     <p class="ft__hours">24時間営業（受付：10時-翌4時）</p>
     <div class="ft__btns">
-      <a class="btn-ft" href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8" stroke="currentColor" stroke-width="2"/></svg> WEB予約</a>
-      <a class="btn-ft btn-ft--green" href="#"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg> LINE予約</a>
+      <a class="btn-ft" href="reserve.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 21h8" stroke="currentColor" stroke-width="2"/></svg> WEB予約</a>
+      <a class="btn-ft btn-ft--green" href="reserve.html"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg> LINE予約</a>
       <a class="btn-ft pc" href="https://www.instagram.com/himegamiryo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg> Instagram</a>
       <a class="btn-ft pc" href="https://www.youtube.com/@himegami-ch" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg> YouTube</a>
     </div>
     <div class="ft__sns sp"><a href="https://www.instagram.com/himegamiryo" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="https://www.tiktok.com/@himegami_ryo" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-label="TikTok"><path d="M14 3h3c.3 2.2 1.7 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.5v3h-.5a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@himegami-ch" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg></a></div>
     <p class="ft__follow">– FOLLOW US –</p>
+    <nav class="ft__links" aria-label="サイト情報"><a href="store.html">店舗案内</a><a href="service.html">ご利用方法</a><a href="faq.html">よくある質問</a><a href="safety.html">安全とプライバシー</a><a href="terms.html">ご利用規約</a><a href="privacy.html">プライバシーポリシー</a><a href="contact.html">お問い合わせ</a><a href="recruit.html">求人案内</a></nav>
     <p class="ft__license">東京都公安委員会 無店舗型風俗特殊営業届出 第00000号</p>
     <p class="ft__copy">Copyright © 2026 女性用風俗《BRAND NAME TOKYO》 All Rights Reserved.</p>
   </div>
