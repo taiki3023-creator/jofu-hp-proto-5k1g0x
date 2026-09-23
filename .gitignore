@@ -3,6 +3,8 @@
 !*.html
 !img/
 !img/**
+!video/
+!video/**
 !news/
 !news/**
 !therapist/

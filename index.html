@@ -45,7 +45,7 @@ ul{padding:0;list-style:none}
 .burger{margin-left:auto;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
 .burger i{display:block;width:26px;height:2px;background:#fff;margin:3px 0}
 .menu-toggle{position:absolute;opacity:0;width:0;height:0}
-.menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--black);border-top:1px solid #333;padding:8px 0 16px}
+.menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--black);border-top:1px solid #333;padding:8px 0 56px;max-height:calc(100vh - 64px);max-height:calc(100dvh - 64px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .menu-toggle:checked ~ .menu{display:block}
 .menu li a{display:block;padding:12px 24px;border-bottom:1px solid #222;font-size:15px}
 
@@ -68,8 +68,17 @@ ul{padding:0;list-style:none}
 .tiles b{display:block;font-size:12px;font-weight:700}
 .tiles span{display:block;font-family:var(--en);font-size:10px;letter-spacing:.06em;margin-top:4px}
 
-/* ---------- video ---------- */
-.video{background:var(--light);padding:22px 16px 10px}
+/* ---------- video（自前ホスト・自動再生・横幅いっぱい・角丸なし） ---------- */
+.video{background:#000;padding:0}
+.video__el{display:block;width:100%;height:auto;border-radius:0;background:#000}
+.video__cap{background:var(--light);color:var(--ink);text-align:center;padding:16px 16px 22px}
+.video__cap .video__l1{font-size:12px;color:#7a7a7a}
+.video__cap .video__l2{font-size:18px;font-weight:700;letter-spacing:.04em;margin-top:2px}
+.video__cap .video__l3{font-size:12px;margin-top:2px;color:#4a4a4a}
+.video__yt{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;min-height:40px;color:var(--ink)}
+.video__yt svg{width:16px;height:16px}
+.tp .video{margin:24px -16px 0}
+.tp .video__cap{text-align:center}
 .video__box{display:block;max-width:660px;margin:0 auto;aspect-ratio:16/9;background:#1b1611;position:relative;overflow:hidden;color:#fff}
 .video__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
 .video__ph{position:absolute;inset:0;padding:22px;background:linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.15) 40%,rgba(0,0,0,.6))}
@@ -275,6 +284,7 @@ ul{padding:0;list-style:none}
 
 /* ---------- 角丸（テーマ変数 --r / --r-s。classic では 0） ---------- */
 .video__box,.tp__video,.ncard,.ncard__img,.ecard,.ecard__img,.rvcard,.rvcard__photo,.tcard__link,.gal__main,.gal__th,.store,.rrow__photo,.hero__panel img,.menu{border-radius:var(--r);overflow:hidden}
+.menu{overflow-y:auto;overflow-x:hidden}  /* 上の overflow:hidden を打ち消す（メニューはスクロールできる必要がある） */
 .btn-more,.btn-line,.btn-ft,.btn-reserve,.btn-std,.portals a,.ecard__banner-b{border-radius:var(--r)}
 .btn-pill{border-radius:999px}
 .tag,.badge,.tags li,.spec dt,.pr__course,.rvcard__who dt,.rvcard__who dd,.coin,.tp__cls{border-radius:var(--r-s)}
@@ -315,7 +325,8 @@ ul{padding:0;list-style:none}
   .hero__title{font-size:clamp(70px,8.5vw,128px)}
   .hero__sub{font-size:22px}
   .tiles{display:none}
-  .video{padding:28px 16px 12px}
+  .video__el{max-height:80vh;object-fit:cover}
+  .tp .video{margin:24px -24px 0}
   .sec{padding:64px 24px 80px}
   .sec__en{font-size:52px}
   .sec__jp{font-size:16px}
@@ -394,11 +405,10 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 .tiles b{font-weight:700;letter-spacing:.06em}
 .tiles span{font-family:var(--serif);letter-spacing:.14em;color:#d9d3cd}
 /* video */
-.video{background:var(--light);padding:28px 16px 12px}
-.video__box{background:#212121}
+.video{background:#000;padding:0}
+.video__cap{background:var(--light)}
 .video__l2{font-weight:700;letter-spacing:.06em}
-.video__big{font-family:var(--en);letter-spacing:.02em;text-transform:none}
-.video__bar{font-family:var(--serif)}
+.video__yt{border-color:var(--ink);color:var(--ink)}
 /* sections */
 .sec{padding:64px 16px 72px}
 .sec--light{background:var(--light);background-image:none}
@@ -542,7 +552,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 <main>
 
 <section class="hero" id="top">
-  <div class="hero__grid"><div class="hero__panel"><img class="ph" src="img/ryo_01.jpg" alt="セラピスト写真" loading="lazy"></div><div class="hero__panel"><img class="ph" src="img/ryo_02.jpg" alt="セラピスト写真" loading="lazy"></div><div class="hero__panel"><img class="ph" src="img/ryo_03.jpg" alt="セラピスト写真" loading="lazy"></div><div class="hero__panel"><img class="ph" src="img/ryo_04.jpg" alt="セラピスト写真" loading="lazy"></div></div>
+  <div class="hero__grid"><div class="hero__panel"><img class="ph" src="img/ryo_01.jpg" alt="セラピスト写真" loading="lazy"></div><div class="hero__panel"><img class="ph" src="img/staff_ren_01.jpg" alt="セラピスト写真" loading="lazy"></div><div class="hero__panel"><img class="ph" src="img/staff_minato_01.jpg" alt="セラピスト写真" loading="lazy"></div><div class="hero__panel"><img class="ph" src="img/staff_yuto_01.jpg" alt="セラピスト写真" loading="lazy"></div></div>
   <div class="hero__over">
     <div class="logo-mark"><svg class="crown" viewBox="0 0 100 100" aria-hidden="true"><path d="M14 70 L10 30 L32 48 L50 18 L68 48 L90 30 L86 70 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><rect x="14" y="74" width="72" height="8" fill="currentColor"/><circle cx="10" cy="28" r="4" fill="currentColor"/><circle cx="50" cy="14" r="4" fill="currentColor"/><circle cx="90" cy="28" r="4" fill="currentColor"/></svg><span class="logo-mark__t">BRAND<br>NAME</span><span class="logo-mark__s">LUXURY SALON<br>FOR WOMEN.</span></div>
     <p class="hero__title">BRAND NAME TOKYO</p>
@@ -555,17 +565,15 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 
 
 <section class="video" id="service">
-  <a class="video__box" href="https://www.youtube.com/watch?v=KCsNYeYPfYQ" target="_blank" rel="noopener" aria-label="YouTubeで動画を開く">
-    <img class="video__img" src="img/thumb_video.jpg" alt="動画のサムネイル" loading="lazy">
-    <div class="video__ph">
-      <p class="video__l1">姫神ちゃんねる（仮）</p>
-      <p class="video__l2">夜の世界のリアルを赤裸々告白</p>
-      <p class="video__l3">〈ぶーちゃんねる コラボ 後編〉</p>
-      <p class="video__big">YOUTUBE<br>CHANNEL</p>
-      <span class="video__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
-      <p class="video__bar"><span>2026.09.20 公開</span></p>
-    </div>
-  </a>
+  <video class="video__el" autoplay muted loop playsinline preload="metadata" poster="video/hero_poster.jpg" aria-label="夜の世界のリアルを赤裸々告白">
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="video__cap">
+    <p class="video__l1">姫神ちゃんねる（仮）</p>
+    <p class="video__l2">夜の世界のリアルを赤裸々告白</p>
+    <p class="video__l3">〈ぶーちゃんねる コラボ 後編〉</p>
+    <a class="video__yt" href="https://www.youtube.com/watch?v=KCsNYeYPfYQ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg> 音声つきで全編を見る（YouTube・2026.09.20 公開）</a>
+  </div>
 </section>
 
 
@@ -608,7 +616,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 
 <section class="sec sec--dark" id="therapist">
   <div class="sec__head"><h2 class="sec__en">Therapist</h2><div class="sec__rule" aria-hidden="true"><i></i><b></b><i></i></div><p class="sec__jp">在籍セラピスト</p></div>
-  <div class="tcards tcards--n1">
+  <div class="tcards tcards--n6">
     <article class="tcard">
       <h3 class="tcard__name">姫神リョウ</h3>
       <p class="tcard__age">Age: -Secret-</p>
@@ -616,6 +624,46 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
       <p class="tcard__catch">《デートコースの生みの親》</p>
       <dl class="spec"><div><dt>H</dt><dd>—</dd></div><div><dt>W</dt><dd>—</dd></div><div><dt>B</dt><dd>—</dd></div><div><dt>P</dt><dd>—</dd></div></dl>
       <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a><a href="https://www.tiktok.com/@himegami_ryo" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="TikTok"><path d="M14 3h3c.3 2.2 1.7 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.5v3h-.5a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/himegamiryo" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@himegami-ch" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg></a><a href="https://himegamistyle.com" aria-label="Webサイト" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Webサイト"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+    </article>
+    <article class="tcard">
+      <h3 class="tcard__name">蓮</h3>
+      <p class="tcard__age">Age: 28 (5/12)</p>
+      <a class="tcard__link" href="therapist/ren.html"><span class="badge badge--gold">ゴールド</span><div class="tcard__photo"><img class="ph" src="img/staff_ren_01.jpg" alt="蓮" loading="lazy"></div></a>
+      <p class="tcard__catch">《話し上手より、聞き上手》</p>
+      <dl class="spec"><div><dt>H</dt><dd>178cm</dd></div><div><dt>W</dt><dd>65kg</dd></div><div><dt>B</dt><dd>B型</dd></div><div><dt>P</dt><dd>INFJ</dd></div></dl>
+      <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+    </article>
+    <article class="tcard">
+      <h3 class="tcard__name">湊</h3>
+      <p class="tcard__age">Age: 30 (11/3)</p>
+      <a class="tcard__link" href="therapist/minato.html"><span class="badge badge--gold">ゴールド</span><div class="tcard__photo"><img class="ph" src="img/staff_minato_01.jpg" alt="湊" loading="lazy"></div></a>
+      <p class="tcard__catch">《静かな時間を、一緒に》</p>
+      <dl class="spec"><div><dt>H</dt><dd>182cm</dd></div><div><dt>W</dt><dd>70kg</dd></div><div><dt>B</dt><dd>A型</dd></div><div><dt>P</dt><dd>ISTJ</dd></div></dl>
+      <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+    </article>
+    <article class="tcard">
+      <h3 class="tcard__name">悠斗</h3>
+      <p class="tcard__age">Age: 25 (7/21)</p>
+      <a class="tcard__link" href="therapist/yuto.html"><span class="badge badge--silver">シルバー</span><div class="tcard__photo"><img class="ph" src="img/staff_yuto_01.jpg" alt="悠斗" loading="lazy"></div></a>
+      <p class="tcard__catch">《一緒にいて、楽な人》</p>
+      <dl class="spec"><div><dt>H</dt><dd>175cm</dd></div><div><dt>W</dt><dd>62kg</dd></div><div><dt>B</dt><dd>O型</dd></div><div><dt>P</dt><dd>ENFP</dd></div></dl>
+      <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+    </article>
+    <article class="tcard">
+      <h3 class="tcard__name">颯</h3>
+      <p class="tcard__age">Age: 32 (2/8)</p>
+      <a class="tcard__link" href="therapist/hayate.html"><span class="badge badge--silver">シルバー</span><div class="tcard__photo"><img class="ph" src="img/staff_hayate_01.jpg" alt="颯" loading="lazy"></div></a>
+      <p class="tcard__catch">《大人の余裕を、そのまま》</p>
+      <dl class="spec"><div><dt>H</dt><dd>180cm</dd></div><div><dt>W</dt><dd>72kg</dd></div><div><dt>B</dt><dd>AB型</dd></div><div><dt>P</dt><dd>ENTJ</dd></div></dl>
+      <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+    </article>
+    <article class="tcard">
+      <h3 class="tcard__name">律</h3>
+      <p class="tcard__age">Age: 24 (9/30)</p>
+      <a class="tcard__link" href="therapist/ritsu.html"><span class="badge badge--new">新人</span><div class="tcard__photo"><img class="ph" src="img/staff_ritsu_01.jpg" alt="律" loading="lazy"></div></a>
+      <p class="tcard__catch">《はじめまして、律です》</p>
+      <dl class="spec"><div><dt>H</dt><dd>173cm</dd></div><div><dt>W</dt><dd>60kg</dd></div><div><dt>B</dt><dd>A型</dd></div><div><dt>P</dt><dd>INFP</dd></div></dl>
+      <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a></div><p class="sns__cap">– SNS LINK –</p>
     </article></div>
 </section>
 
@@ -650,7 +698,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 
 <section class="sec sec--dark" id="ranking">
   <div class="sec__head"><h2 class="sec__en">Ranking</h2><div class="sec__rule" aria-hidden="true"><i></i><b></b><i></i></div><p class="sec__jp">ランキング</p></div>
-  <div class="rrows rrows--n1">
+  <div class="rrows rrows--n3">
     <article class="rrow">
       <a class="rrow__photo" href="therapist/himegami.html"><img class="ph" src="img/ryo_01.jpg" alt="姫神リョウ" loading="lazy"><span class="ribbon">-LEGEND CLASS-</span></a>
       <div class="rrow__body">
@@ -661,6 +709,30 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
         <p class="rrow__catch">《デートコースの生みの親》</p>
         <p class="rrow__pt"><span class="coin">pt</span>— <small>pt</small></p>
         <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a><a href="https://www.tiktok.com/@himegami_ryo" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="TikTok"><path d="M14 3h3c.3 2.2 1.7 3.6 4 3.9v3c-1.5 0-2.9-.5-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.5v3h-.5a2.5 2.5 0 1 0 2.5 2.5V3z" fill="currentColor"/></svg></a><a href="https://www.instagram.com/himegamiryo" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Instagram"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"/></svg></a><a href="https://www.youtube.com/@himegami-ch" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="YouTube"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"/><path d="M10 9l5 3-5 3z" fill="#000"/></svg></a><a href="https://himegamistyle.com" aria-label="Webサイト" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-label="Webサイト"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+      </div>
+    </article>
+    <article class="rrow">
+      <a class="rrow__photo" href="therapist/ren.html"><img class="ph" src="img/staff_ren_01.jpg" alt="蓮" loading="lazy"><span class="ribbon">-GOLD CLASS-</span></a>
+      <div class="rrow__body">
+        <div class="laurel"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M20 62 C6 50 6 30 16 18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M60 62 C74 50 74 30 64 18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 40 l-8 -4 M17 50 l-9 -1 M18 30 l-6 -7 M66 40 l8 -4 M63 50 l9 -1 M62 30 l6 -7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="40" r="20" fill="currentColor"/><text x="40" y="47" text-anchor="middle" font-size="20" font-weight="700" fill="#15171b">2</text><text x="40" y="70" text-anchor="middle" font-size="10" fill="currentColor">nd</text></svg></div>
+        <p class="rrow__en">Total Ranking</p>
+        <p class="rrow__jp">総合ランキング No.2</p>
+        <h3 class="rrow__name">蓮</h3>
+        <p class="rrow__catch">《話し上手より、聞き上手》</p>
+        <p class="rrow__pt"><span class="coin">pt</span>— <small>pt</small></p>
+        <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a></div><p class="sns__cap">– SNS LINK –</p>
+      </div>
+    </article>
+    <article class="rrow">
+      <a class="rrow__photo" href="therapist/minato.html"><img class="ph" src="img/staff_minato_01.jpg" alt="湊" loading="lazy"><span class="ribbon">-GOLD CLASS-</span></a>
+      <div class="rrow__body">
+        <div class="laurel"><svg viewBox="0 0 80 80" aria-hidden="true"><path d="M20 62 C6 50 6 30 16 18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M60 62 C74 50 74 30 64 18" fill="none" stroke="currentColor" stroke-width="3"/><path d="M14 40 l-8 -4 M17 50 l-9 -1 M18 30 l-6 -7 M66 40 l8 -4 M63 50 l9 -1 M62 30 l6 -7" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="40" r="20" fill="currentColor"/><text x="40" y="47" text-anchor="middle" font-size="20" font-weight="700" fill="#15171b">3</text><text x="40" y="70" text-anchor="middle" font-size="10" fill="currentColor">rd</text></svg></div>
+        <p class="rrow__en">Total Ranking</p>
+        <p class="rrow__jp">総合ランキング No.3</p>
+        <h3 class="rrow__name">湊</h3>
+        <p class="rrow__catch">《静かな時間を、一緒に》</p>
+        <p class="rrow__pt"><span class="coin">pt</span>— <small>pt</small></p>
+        <div class="sns"><a href="reserve.html" aria-label="LINE WORKS"><svg viewBox="0 0 24 24" aria-label="LINE"><circle cx="12" cy="12" r="11" fill="currentColor"/><text x="12" y="15" text-anchor="middle" font-size="8" font-weight="700" fill="#000">LINE</text></svg></a></div><p class="sns__cap">– SNS LINK –</p>
       </div>
     </article></div>
   <p class="more"><a class="btn-more" href="ranking.html">View More <span>&gt;</span></a></p>
@@ -685,9 +757,41 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
       </div>
       <p class="rvcard__body">（この口コミはサンプルです。実際の口コミが集まり次第、差し替えます。）<br>口コミの表示項目＝投稿者・投稿日・ビジュアル／接客力／テクニック／満足度の星5段階・本文全文。</p>
       <p class="rvcard__more"><a class="btn-pill" href="therapist/himegami.html">姫神リョウ の口コミ（0件） &gt;</a></p>
+    </article>
+    <article class="rvcard">
+      <div class="rvcard__top">
+        <a class="rvcard__photo" href="therapist/ren.html"><img class="ph" src="img/staff_ren_01.jpg" alt="蓮" loading="lazy"></a>
+        <div class="rvcard__meta">
+          <h3 class="rvcard__name">蓮 <span class="badge badge--gold">ゴールド</span></h3>
+          <p class="rvcard__romaji">Ren (Age:28)</p>
+          <dl class="rvcard__who"><div><dt>投稿者</dt><dd class="dd-dark">サンプル様</dd></div><div><dt>投稿日</dt><dd>2026.9.23</dd></div></dl>
+          <ul class="rating">
+            <li>ビジュアル：<b>★5/5</b></li><li>接客力：<b>★5/5</b></li>
+            <li>テクニック：<b>★4/5</b></li><li>満足度：<b>★5/5</b></li>
+          </ul>
+        </div>
+      </div>
+      <p class="rvcard__body">（サンプルの口コミです）<br>初めてで緊張していましたが、最初の30分はお茶をしながら話すだけで、気づいたら緊張がほどけていました。</p>
+      <p class="rvcard__more"><a class="btn-pill" href="therapist/ren.html">蓮 の口コミ（0件） &gt;</a></p>
+    </article>
+    <article class="rvcard">
+      <div class="rvcard__top">
+        <a class="rvcard__photo" href="therapist/yuto.html"><img class="ph" src="img/staff_yuto_01.jpg" alt="悠斗" loading="lazy"></a>
+        <div class="rvcard__meta">
+          <h3 class="rvcard__name">悠斗 <span class="badge badge--silver">シルバー</span></h3>
+          <p class="rvcard__romaji">Yuto (Age:25)</p>
+          <dl class="rvcard__who"><div><dt>投稿者</dt><dd class="dd-dark">サンプル様</dd></div><div><dt>投稿日</dt><dd>2026.9.23</dd></div></dl>
+          <ul class="rating">
+            <li>ビジュアル：<b>★4/5</b></li><li>接客力：<b>★5/5</b></li>
+            <li>テクニック：<b>★4/5</b></li><li>満足度：<b>★5/5</b></li>
+          </ul>
+        </div>
+      </div>
+      <p class="rvcard__body">（サンプルの口コミです）<br>とにかく明るくて、こちらまで元気になりました。年下ですが気を遣わせない人です。</p>
+      <p class="rvcard__more"><a class="btn-pill" href="therapist/yuto.html">悠斗 の口コミ（0件） &gt;</a></p>
     </article></div>
   <p class="more"><a class="btn-more" href="review.html">View More <span>&gt;</span></a></p>
-  <div class="stores stores--n1"><a class="store" href="store.html"><span class="store__bg">TOKYO</span><span class="store__t"><small>BRAND NAME</small><b>東京本店</b></span><span class="store__faces"><img class="ph" src="img/ryo_01.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/ryo_02.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/ryo_03.jpg" alt="東京本店" loading="lazy"></span></a></div>
+  <div class="stores stores--n1"><a class="store" href="store.html"><span class="store__bg">TOKYO</span><span class="store__t"><small>BRAND NAME</small><b>東京本店</b></span><span class="store__faces"><img class="ph" src="img/ryo_01.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/staff_ren_01.jpg" alt="東京本店" loading="lazy"><img class="ph" src="img/staff_hayate_01.jpg" alt="東京本店" loading="lazy"></span></a></div>
   <div class="portals"><a href="links.html">ポータルサイトA</a><a href="links.html">ポータルサイトB（求人）</a></div>
 </section>
 
