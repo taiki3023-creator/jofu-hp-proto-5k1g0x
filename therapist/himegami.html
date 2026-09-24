@@ -303,6 +303,18 @@ ul{padding:0;list-style:none}
 .qa dd{font-size:14px;color:#333;margin:4px 0 0 1.2em;line-height:1.8}
 .sched{text-align:center;font-size:15px;max-width:640px;margin:0 auto}
 
+/* ---------- HP組み込み型の修正メモ（?memo でON） ---------- */
+.mm{position:fixed;left:0;top:50%;z-index:60;transform:translateY(-50%)}
+.mm__tab{writing-mode:vertical-rl;background:#0B5CA8;color:#fff;border:0;border-radius:0 8px 8px 0;padding:14px 8px;font:inherit;font-size:13px;font-weight:700;letter-spacing:.2em;cursor:pointer;box-shadow:2px 2px 10px rgba(0,0,0,.25)}
+.mm__panel{position:absolute;left:40px;top:50%;transform:translateY(-50%);width:min(300px,calc(100vw - 56px));background:#fff;color:#13233A;border:1px solid #D5DDE6;border-radius:10px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);font-size:13px;line-height:1.7}
+.mm__t{font-weight:700;font-size:14px}.mm__s{color:#56657A;margin:4px 0 10px}
+.mm__btn{display:block;width:100%;margin-top:8px;font:inherit;font-size:13px;min-height:40px;border-radius:6px;border:1px solid #0B5CA8;background:#fff;color:#0B5CA8;cursor:pointer}
+.mmb{max-width:680px;margin:18px auto 0;padding:12px 14px;border:2px dashed #0B5CA8;border-radius:10px;background:#EEF2F6;color:#13233A;text-align:left}
+.mmb__l{display:block;font-size:12px;font-weight:700;color:#0B5CA8;margin-bottom:6px}
+.mmb__ta{width:100%;font:inherit;font-size:16px;line-height:1.6;padding:10px 12px;border:1px solid #D5DDE6;border-radius:6px;background:#fff;color:#13233A;min-height:80px;resize:vertical}
+.mmb__st{font-size:12px;color:#56657A;margin-top:4px}
+.sec--dark .mmb,.tp .mmb{background:rgba(255,255,255,.95)}
+
 /* ---------- 常時表示の予約ボタン＋3択ポップアップ ---------- */
 .rsv__toggle{position:fixed;top:0;left:0;opacity:0;width:0;height:0;pointer-events:none}  /* fixed＝ラベル押下時にページが飛ばないように */
 .rsv__bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(237,231,227,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid #d9d3cd}
@@ -714,6 +726,58 @@ paint();})();
     <p class="ft__copy">Copyright © 2026 女性用風俗《BRAND NAME TOKYO》 All Rights Reserved.</p>
   </div>
 </footer>
+
+<div class="mm" id="mm" hidden>
+  <button class="mm__tab" id="mm-tab" type="button" aria-expanded="false">メモ</button>
+  <div class="mm__panel" id="mm-panel" hidden>
+    <p class="mm__t">修正メモ（このページ）</p>
+    <p class="mm__s" id="mm-status">各ブロックの下にメモ欄があります。入力が止まると自動で送信されます。</p>
+    <button class="mm__btn" id="mm-copy" type="button">このページのメモをまとめてコピー</button>
+    <button class="mm__btn" id="mm-off" type="button">メモモードを終了</button>
+  </div>
+</div>
+<script>
+(function(){
+var HOOK="https://discord.com/api/webhooks/1552508839344218227/1Uci4i0ET4EHNJuc8wpCyP-MyHl1D1c6i2j1UCi4CfsgT4YwfjP6UOPtC3b761Eg03U-",VER="hp1",KEY='jofu-memo-on';
+var q=location.search+location.hash;
+if(/[?&#]memo(=|&|$)/.test(q)){try{localStorage.setItem(KEY,'1')}catch(e){}}
+var on=false;try{on=localStorage.getItem(KEY)==='1'}catch(e){}
+if(!on)return;
+var segs=decodeURIComponent(location.pathname).split('/').filter(Boolean);var page=segs.slice(-2).join('/');if(!/^(news|therapist)\//.test(page))page=segs.slice(-1)[0]||'index.html';
+var root=document.getElementById('mm');root.hidden=false;
+var tab=document.getElementById('mm-tab'),panel=document.getElementById('mm-panel');
+tab.onclick=function(){panel.hidden=!panel.hidden;tab.setAttribute('aria-expanded',String(!panel.hidden))};
+document.getElementById('mm-off').onclick=function(){try{localStorage.removeItem(KEY)}catch(e){}location.href=location.pathname};
+function title(sec){var en=sec.querySelector('.sec__en'),jp=sec.querySelector('.sec__jp'),h=sec.querySelector('h1,h2,h3');
+  if(en)return (en.textContent.trim()+(jp?'（'+jp.textContent.trim()+'）':''));
+  if(sec.classList.contains('hero'))return 'ヒーロー（写真・見出し）';if(sec.classList.contains('video'))return '動画';
+  if(sec.classList.contains('tp'))return 'キャスト本体（写真・料金・予約）';return h?h.textContent.trim().slice(0,40):(sec.id||'ブロック')}
+var secs=[].slice.call(document.querySelectorAll('main > section, main > .tp'));
+var boxes=[];
+secs.forEach(function(sec,i){
+  var t=title(sec),id=sec.id||('b'+i),k='memo-'+VER+'-'+page+'#'+id;
+  var box=document.createElement('div');box.className='mmb';
+  box.innerHTML='<label class="mmb__l">メモ：'+t.replace(/</g,'&lt;')+'</label><textarea class="mmb__ta" rows="3" placeholder="このブロックの修正指示を書く"></textarea><p class="mmb__st">未入力</p>';
+  sec.appendChild(box);
+  var ta=box.querySelector('textarea'),st=box.querySelector('.mmb__st'),last='';
+  try{var saved=JSON.parse(localStorage.getItem(k)||'null');if(saved){ta.value=saved.text||'';last=saved.sent||'';st.textContent=saved.sent===ta.value&&ta.value?'送信済み '+(saved.at||''):(ta.value?'未送信':'未入力')}}catch(e){}
+  var timer=null;
+  function send(){var text=ta.value;if(text===last)return;st.textContent='送信中…';
+    var body={username:'HP修正メモ',embeds:[{title:t,description:text.trim()?text:'（空にしました）',fields:[{name:'ページ',value:page,inline:true},{name:'項目',value:t,inline:true},{name:'URL',value:location.href.split('?')[0].split('#')[0]+'#'+id}],color:743592}]};
+    fetch(HOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){
+      if(!r.ok)throw new Error(r.status);last=text;var at=new Date();var hh=('0'+at.getHours()).slice(-2)+':'+('0'+at.getMinutes()).slice(-2);
+      try{localStorage.setItem(k,JSON.stringify({text:text,sent:text,at:hh}))}catch(e){}st.textContent=text.trim()?'送信済み '+hh:'未入力';
+    }).catch(function(){st.textContent='送信できませんでした（電波を確認して、もう一度入力してください）';try{localStorage.setItem(k,JSON.stringify({text:text,sent:last}))}catch(e){}});}
+  ta.addEventListener('input',function(){st.textContent='未送信（入力が止まると送信）';try{localStorage.setItem(k,JSON.stringify({text:ta.value,sent:last}))}catch(e){}clearTimeout(timer);timer=setTimeout(send,1500)});
+  ta.addEventListener('blur',function(){clearTimeout(timer);send()});
+  boxes.push({t:t,ta:ta});
+});
+document.getElementById('mm-copy').onclick=function(){var out=[];boxes.forEach(function(b){if(b.ta.value.trim())out.push('【'+page+' / '+b.t+'】\n'+b.ta.value.trim())});
+  var s=out.length?out.join('\n\n'):'このページにはまだメモがありません。';
+  (navigator.clipboard?navigator.clipboard.writeText(s):Promise.reject()).then(function(){document.getElementById('mm-status').textContent='コピーしました'},function(){prompt('コピーしてください',s)})};
+})();
+</script>
+
 
 
 <input type="checkbox" id="rsv-open" class="rsv__toggle" aria-label="予約方法を選ぶ">
