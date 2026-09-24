@@ -216,7 +216,7 @@ ul{padding:0;list-style:none}
 .rvcard__who .dd-dark{background:#222;color:#fff}
 .rating{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 8px;font-size:11px;margin-top:10px;white-space:nowrap}
 .rating b{font-family:Arial,sans-serif;font-weight:700}
-.rating b::first-letter{color:#f2b01e}
+
 .rvcard__body{font-family:"Yu Gothic","Hiragino Sans","Meiryo",sans-serif;font-size:13px;line-height:1.8;margin:14px 2px 0}
 .rvcard__more{text-align:center;margin-top:16px}
 .btn-pill{display:inline-block;background:#111;color:#fff;border-radius:999px;padding:12px 26px;font-size:14px;font-weight:700;min-height:44px}
@@ -309,7 +309,7 @@ ul{padding:0;list-style:none}
 .mm__panel{position:absolute;left:40px;top:50%;transform:translateY(-50%);width:min(300px,calc(100vw - 56px));background:#fff;color:#13233A;border:1px solid #D5DDE6;border-radius:10px;padding:14px;box-shadow:0 10px 30px rgba(0,0,0,.25);font-size:13px;line-height:1.7}
 .mm__t{font-weight:700;font-size:14px}.mm__s{color:#56657A;margin:4px 0 10px}
 .mm__btn{display:block;width:100%;margin-top:8px;font:inherit;font-size:13px;min-height:40px;border-radius:6px;border:1px solid #0B5CA8;background:#fff;color:#0B5CA8;cursor:pointer}
-.mmb{max-width:680px;margin:18px auto 0;padding:12px 14px;border:2px dashed #0B5CA8;border-radius:10px;background:#EEF2F6;color:#13233A;text-align:left}
+.mmb{max-width:680px;margin:14px auto;width:calc(100% - 32px);padding:12px 14px;border:2px dashed #0B5CA8;border-radius:10px;background:#EEF2F6;color:#13233A;text-align:left}
 .mmb__l{display:block;font-size:12px;font-weight:700;color:#0B5CA8;margin-bottom:6px}
 .mmb__ta{width:100%;font:inherit;font-size:16px;line-height:1.6;padding:10px 12px;border:1px solid #D5DDE6;border-radius:6px;background:#fff;color:#13233A;min-height:80px;resize:vertical}
 .mmb__st{font-size:12px;color:#56657A;margin-top:4px}
@@ -526,7 +526,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 .rvcard__who dd{background:var(--sand);border-color:var(--sand)}
 .rvcard__who .dd-dark{background:#3d3d3d;color:var(--lt)}
 .rating b{font-family:var(--serif)}
-.rating b::first-letter{color:#4a4a4a}
+
 .rvcard__body{font-family:var(--serif);color:#333}
 .btn-pill{background:transparent;color:var(--ink);border:2px solid var(--ink);font-weight:700}
 .store{background:#4a4a4a;color:var(--lt)}
@@ -803,7 +803,9 @@ secs.forEach(function(sec,i){
   var t=title(sec),id=sec.id||('b'+i),k='memo-'+VER+'-'+page+'#'+id;
   var box=document.createElement('div');box.className='mmb';
   box.innerHTML='<label class="mmb__l">メモ：'+t.replace(/</g,'&lt;')+'</label><textarea class="mmb__ta" rows="3" placeholder="このブロックの修正指示を書く"></textarea><p class="mmb__st">未入力</p>';
-  sec.appendChild(box);
+  /* ブロックの直後に置く（ヒーローは正方形＋overflow:hiddenで中に入れると隠れるため・2026-09-24 taiki指摘）。ヒーロー直後のタイル帯があればその後ろ */
+  var anchor=sec;if(sec.classList.contains('hero')&&sec.nextElementSibling&&sec.nextElementSibling.classList.contains('tiles')){anchor=sec.nextElementSibling}
+  anchor.insertAdjacentElement('afterend',box);
   var ta=box.querySelector('textarea'),st=box.querySelector('.mmb__st'),last='';
   try{var saved=JSON.parse(localStorage.getItem(k)||'null');if(saved){ta.value=saved.text||'';last=saved.sent||'';st.textContent=saved.sent===ta.value&&ta.value?'送信済み '+(saved.at||''):(ta.value?'未送信':'未入力')}}catch(e){}
   var timer=null;
