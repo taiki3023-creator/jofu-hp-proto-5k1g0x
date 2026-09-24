@@ -82,6 +82,11 @@ ul{padding:0;list-style:none}
 .video__mute-ic svg{width:18px;height:18px}
 .video__pp{position:absolute;left:12px;bottom:14px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;border:1.5px solid rgba(255,255,255,.85);display:grid;place-items:center;cursor:pointer;padding:0}
 .video__pp svg{width:20px;height:20px}
+.video__vol{position:absolute;left:60px;bottom:14px;display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.6);border:1.5px solid rgba(255,255,255,.85);border-radius:999px;padding:0 12px;height:40px;color:#fff}
+.video__vol-ic{display:grid;place-items:center;width:18px;height:18px}.video__vol-ic svg{width:18px;height:18px}
+.video__vol input{-webkit-appearance:none;appearance:none;width:84px;height:4px;background:rgba(255,255,255,.4);border-radius:2px;outline:none;margin:0}
+.video__vol input::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;cursor:pointer}
+.video__vol input::-moz-range-thumb{width:18px;height:18px;border:0;border-radius:50%;background:#fff;cursor:pointer}
 .video__bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.25)}
 .video__bar-in{height:100%;width:0;background:#fff}
 .tp .video{margin:24px -16px 0}
@@ -364,7 +369,8 @@ body:has(.rsv__bar){padding-bottom:84px}
   .tiles{display:none}
   .video__el{width:auto;max-width:100%;height:auto;max-height:none;margin:0 auto;object-fit:contain}  /* PCは等倍（1280px）で中央。引き伸ばさない */
   .video__wrap{display:flex;justify-content:center;background:#000}
-  .video__mute,.video__pp{bottom:20px}
+  .video__mute,.video__pp,.video__vol{bottom:20px}
+  .video__vol input{width:120px}
   .tp .video{margin:24px -24px 0}
   .sec{padding:64px 24px 80px}
   .sec__en{font-size:52px}
@@ -609,6 +615,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
     </video>
     <button class="video__mute" id="hero-mute" type="button" aria-pressed="false" aria-label="音声をオンにする"><span class="video__mute-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="video__mute-t">音声を出す</span></button>
     <button class="video__pp" id="hero-pp" type="button" aria-label="一時停止"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg></button>
+    <label class="video__vol" for="hero-vol"><span class="video__vol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8a5 5 0 0 1 0 8M18.5 5.5a8.5 8.5 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><input id="hero-vol" type="range" min="0" max="100" value="100" step="1" aria-label="音量"></label>
     <div class="video__bar"><div class="video__bar-in" id="hero-bar"></div></div>
   </div>
   <div class="video__cap">
@@ -622,6 +629,7 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 var IC_ON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8a5 5 0 0 1 0 8M18.5 5.5a8.5 8.5 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',IC_OFF='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',IC_PL='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>',IC_PA='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg>';
 function paint(){var on=!v.muted;m.setAttribute('aria-pressed',on?'true':'false');m.setAttribute('aria-label',on?'音声を消す':'音声をオンにする');m.querySelector('.video__mute-ic').innerHTML=on?IC_ON:IC_OFF;m.querySelector('.video__mute-t').textContent=on?'音声を消す':'音声を出す';p.innerHTML=v.paused?IC_PL:IC_PA;p.setAttribute('aria-label',v.paused?'再生':'一時停止')}
 m.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted&&v.paused){v.play()}paint()});
+var vol=document.getElementById('hero-vol');if(vol){vol.addEventListener('input',function(){v.volume=vol.value/100;if(vol.value>0&&v.muted){v.muted=false}if(vol.value==0){v.muted=true}paint()});v.addEventListener('volumechange',function(){vol.value=v.muted?0:Math.round(v.volume*100)})}
 p.addEventListener('click',function(){if(v.paused){v.play()}else{v.pause()}paint()});
 v.addEventListener('play',paint);v.addEventListener('pause',paint);v.addEventListener('volumechange',paint);
 v.addEventListener('timeupdate',function(){if(v.duration){b.style.width=(v.currentTime/v.duration*100)+'%'}});

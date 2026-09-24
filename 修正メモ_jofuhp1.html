@@ -1,0 +1,407 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>女風HP 修正メモ</title>
+<style>
+:root{--m-ground:#EEF2F6;--m-surface:#FFFFFF;--m-ink:#13233A;--m-sub:#56657A;--m-accent:#0B5CA8;--m-cyan:#1FA6C4;--m-ok:#2E7D5B;--m-warn:#B4451F;--m-line:#D5DDE6;--m-field:#F6F9FC}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--m-ground:#0D1622;--m-surface:#152233;--m-ink:#E4ECF4;--m-sub:#93A3B6;--m-accent:#6CB4EE;--m-cyan:#5CCDE3;--m-ok:#5FC08F;--m-warn:#E58A63;--m-line:#2A3A4E;--m-field:#0F1B29}}
+:root[data-theme="dark"]{--m-ground:#0D1622;--m-surface:#152233;--m-ink:#E4ECF4;--m-sub:#93A3B6;--m-accent:#6CB4EE;--m-cyan:#5CCDE3;--m-ok:#5FC08F;--m-warn:#E58A63;--m-line:#2A3A4E;--m-field:#0F1B29}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{background:var(--m-ground)}body{margin:0;font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;color:var(--m-ink);background:var(--m-ground);line-height:1.7}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--m-surface);border-bottom:3px solid var(--m-cyan);padding:10px 16px}
+.bar-in{max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.case{font-size:12px;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--m-accent);border-radius:4px;padding:2px 10px}
+.bar h1{font-size:17px;line-height:1.4;margin:0;color:var(--m-accent)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:14px;color:var(--m-sub);font-variant-numeric:tabular-nums}
+.meta b{color:var(--m-ink)}#sync.ok{color:var(--m-ok)}#sync.ng{color:var(--m-warn)}
+.bar button{font:inherit;font-size:14px;min-height:40px;padding:6px 14px;border-radius:6px;border:1px solid var(--m-accent);background:var(--m-surface);color:var(--m-accent);cursor:pointer}
+button:focus-visible,textarea:focus-visible,.nav a:focus-visible{outline:3px solid var(--m-accent);outline-offset:2px}
+.nav{max-width:1320px;margin:8px auto 0;display:flex;gap:4px;overflow-x:auto;padding-bottom:2px}
+.nav a{flex:0 0 auto;min-width:34px;height:34px;display:grid;place-items:center;border-radius:6px;border:1px solid var(--m-line);color:var(--m-sub);text-decoration:none;font-size:13px;background:var(--m-surface)}
+.nav a.has{border-color:var(--m-accent);color:#fff;background:var(--m-accent);font-weight:700}.nav a.done{border-color:var(--m-ok);background:var(--m-ok);color:#fff}
+.wrap{max-width:1320px;margin:0 auto;padding:20px 16px 80px;display:flex;flex-direction:column;gap:28px}
+.banner{background:var(--m-surface);border-left:5px solid var(--m-warn);padding:12px 16px;border-radius:0 6px 6px 0;font-size:14.5px}
+.how{font-size:14.5px;color:var(--m-sub);margin:0}
+.ask{background:var(--m-surface);border:1px solid var(--m-line);border-left:5px solid var(--m-accent);border-radius:0 8px 8px 0;padding:12px 16px}
+.ask h2{font-size:16px;margin:0 0 6px;color:var(--m-accent)}.ask ul{list-style:none;margin:0;padding:0}
+.ask li{display:grid;grid-template-columns:minmax(0,6em) minmax(0,1fr);gap:4px 14px;border-top:1px solid var(--m-line);padding:8px 0;font-size:15px}
+.ask-p{font-weight:700;color:var(--m-sub)}.ask .foot{font-size:13.5px;color:var(--m-sub);margin:6px 0 0}
+.pg{scroll-margin-top:120px}
+.pg-h{font-size:16px;line-height:1.5;margin:0 0 8px;display:flex;gap:10px;align-items:baseline}
+.num{color:var(--m-accent);font-weight:700;min-width:1.6em;font-variant-numeric:tabular-nums}
+.pair{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr);gap:16px;align-items:start}.pair>*{min-width:0}
+.sheet{border-radius:8px;border:1px solid var(--m-line);overflow:hidden;background:var(--m-surface);padding:14px 16px}
+.item-note{margin:0 0 8px;font-size:14.5px;color:var(--m-sub)}
+.item-open{margin:0 0 10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:13px;color:var(--m-sub)}
+.open{display:inline-block;padding:8px 14px;border-radius:6px;background:var(--m-accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;min-height:40px;line-height:24px}
+.url{word-break:break-all}
+.frame{border:1px solid var(--m-line);border-radius:10px;overflow:hidden;background:#fff;width:100%;max-width:420px;aspect-ratio:390/720;margin:0 auto}
+.frame iframe{width:100%;height:100%;border:0;display:block}
+.snippet{overflow:auto}
+.memo{background:var(--m-surface);border:1px solid var(--m-line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 112px)}
+.memo-h{font-size:13px;letter-spacing:.08em;color:var(--m-sub)}
+.memo textarea{width:100%;font:inherit;font-size:16px;line-height:1.7;color:var(--m-ink);background:var(--m-field);border:1px solid var(--m-line);border-radius:6px;padding:10px 12px;resize:vertical;min-height:9.5em}
+.st{margin:0;font-size:13px;color:var(--m-sub)}.st.saved{color:var(--m-ok)}.st.dirty,.st.error{color:var(--m-warn)}
+.rp{border-top:1px solid var(--m-line);padding-top:8px;font-size:14.5px;display:flex;gap:8px;align-items:baseline}
+.rp-tag{flex:0 0 auto;font-size:12px;font-weight:700;color:#fff;background:var(--m-accent);border-radius:4px;padding:1px 8px}.rp.done .rp-tag{background:var(--m-ok)}
+.overall .memo{max-width:760px;position:static}
+dialog{width:min(720px,calc(100% - 32px));border:1px solid var(--m-line);border-radius:10px;background:var(--m-surface);color:var(--m-ink);padding:18px}
+dialog::backdrop{background:rgba(10,20,30,.55)}.dl-h{font-size:17px;margin:0 0 8px;color:var(--m-accent)}
+dialog textarea{width:100%;min-height:50vh;font:inherit;font-size:14.5px}.dl-row{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+@media (max-width:860px){.pair{grid-template-columns:minmax(0,1fr)}.bar h1{font-size:15.5px}.bar{position:static}.pg{scroll-margin-top:12px}.memo{position:static}.frame{max-width:none}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style></head><body>
+<header class="bar">
+  <div class="bar-in">
+    <span class="case">女風HP</span>
+    <h1>女風HP 模写プロトタイプ 修正メモ（2026-09-24版）</h1>
+    <div class="meta"><span>メモあり <b id="count">0</b> / 20欄</span><span id="sync">接続を確認中…</span></div>
+    <button type="button" id="show-all">全メモをまとめて表示</button>
+  </div>
+  <nav class="nav" aria-label="項目へ移動"><a href="#sec-p01" id="nv-p01" title="トップ：ヘッダー・ヒーロー写真4枚・動画（音声ボタン・音量）">1</a><a href="#sec-p02" id="nv-p02" title="トップ：News（新着3件）">2</a><a href="#sec-p03" id="nv-p03" title="トップ：Therapist（6人の札）">3</a><a href="#sec-p04" id="nv-p04" title="トップ：Events・Ranking・Review・店舗">4</a><a href="#sec-p05" id="nv-p05" title="料金システム（SYSTEM）">5</a><a href="#sec-p06" id="nv-p06" title="セラピスト個人ページ（姫神リョウ）">6</a><a href="#sec-p07" id="nv-p07" title="セラピスト個人ページ（蓮＝架空サンプル）">7</a><a href="#sec-p08" id="nv-p08" title="在籍セラピスト一覧">8</a><a href="#sec-p09" id="nv-p09" title="出勤情報（7日タブ）">9</a><a href="#sec-p10" id="nv-p10" title="ご予約（流れの説明＋電話番号認証つきフォーム）">10</a><a href="#sec-p11" id="nv-p11" title="ご利用方法（はじめての方へ）">11</a><a href="#sec-p12" id="nv-p12" title="よくある質問">12</a><a href="#sec-p13" id="nv-p13" title="安全とプライバシー">13</a><a href="#sec-p14" id="nv-p14" title="お知らせ一覧・記事">14</a><a href="#sec-p15" id="nv-p15" title="お問い合わせ（店LINE・店SNS・メールの3窓口）">15</a><a href="#sec-p16" id="nv-p16" title="店舗案内・ラブホテル・ポータル・求人案内">16</a><a href="#sec-p17" id="nv-p17" title="ご利用規約（第1稿・弁護士確認前）">17</a><a href="#sec-p18" id="nv-p18" title="プライバシーポリシー（9/12第1稿の本文）">18</a><a href="#sec-p19" id="nv-p19" title="ハンバーガーメニュー・フッター（全ページ共通）">19</a></nav>
+</header>
+<main class="wrap">
+  <div class="banner" id="banner" hidden>この画面では保存先につながっていないため、メモはこの端末にだけ残ります。書いた内容は「全メモをまとめて表示」からコピーして、チャットに貼ってください。</div>
+  <p class="how">左（スマホでは上）が確認する項目、右（下）がメモ欄です。入力が止まると自動で保存されます。書き終えたら、<b>女風HPのチャット（VSCodeの窓口）</b>で「メモ書いた」とだけ伝えてください。</p>
+  <section class="ask" aria-labelledby="ask-h"><h2 id="ask-h">先に決めてほしいこと</h2><ul><li><span class="ask-p">ランキング</span><span>トップに載せるか（9/9「持ち込まない」と衝突。今は載せている）</span></li><li><span class="ask-p">SMS認証</span><span>問い合わせる事業者＝EZSMS・SMSLINK・Cuenote の3社同時で良いか</span></li><li><span class="ask-p">店名・LINE</span><span>店名／店の公式LINEのURL／メールアドレスが決まったら教えてください（入れるだけで全ボタンが本物になる）</span></li></ul>
+  <p class="foot">答えは下の「全体へのメモ」か、該当項目のメモ欄に書いてください。</p></section>
+  <section class="pg overall" id="sec-p00">
+    <h2 class="pg-h"><span class="num">全体</span>全体へのメモ</h2>
+    <div class="memo" data-page="p00">
+  <label class="memo-h" for="ta-jofuhp1-p00">メモ</label>
+  <textarea id="ta-jofuhp1-p00" data-title="全体" rows="4" placeholder="見せ方・順番・足したいもの・全体の雰囲気など、項目をまたぐ指示を書く"></textarea>
+  <p class="st" id="st-p00" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p00" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </section>
+  <section class="pg" id="sec-p01">
+  <h2 class="pg-h"><span class="num">1</span>トップ：ヘッダー・ヒーロー写真4枚・動画（音声ボタン・音量）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">ミュート自動再生→音声ボタン→音量スライダー。PCは等倍1280px</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html" title="トップ：ヘッダー・ヒーロー写真4枚・動画（音声ボタン・音量）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p01">
+  <label class="memo-h" for="ta-jofuhp1-p01">メモ</label>
+  <textarea id="ta-jofuhp1-p01" data-title="1 トップ：ヘッダー・ヒーロー写真4枚・動画（音声ボタン・音量）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p01" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p01" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p02">
+  <h2 class="pg-h"><span class="num">2</span>トップ：News（新着3件）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#news" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#news</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#news" title="トップ：News（新着3件）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p02">
+  <label class="memo-h" for="ta-jofuhp1-p02">メモ</label>
+  <textarea id="ta-jofuhp1-p02" data-title="2 トップ：News（新着3件）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p02" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p02" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p03">
+  <h2 class="pg-h"><span class="num">3</span>トップ：Therapist（6人の札）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">姫神＋架空5人（AI生成写真）。札の高さ・行位置は揃えた</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#therapist" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#therapist</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#therapist" title="トップ：Therapist（6人の札）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p03">
+  <label class="memo-h" for="ta-jofuhp1-p03">メモ</label>
+  <textarea id="ta-jofuhp1-p03" data-title="3 トップ：Therapist（6人の札）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p03" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p03" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p04">
+  <h2 class="pg-h"><span class="num">4</span>トップ：Events・Ranking・Review・店舗</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#events" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#events</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html#events" title="トップ：Events・Ranking・Review・店舗" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p04">
+  <label class="memo-h" for="ta-jofuhp1-p04">メモ</label>
+  <textarea id="ta-jofuhp1-p04" data-title="4 トップ：Events・Ranking・Review・店舗" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p04" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p04" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p05">
+  <h2 class="pg-h"><span class="num">5</span>料金システム（SYSTEM）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">3ランク（シルバー16,000／ゴールド19,000／レジェンド50,000〜）。他は未定表示</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/price.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/price.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/price.html" title="料金システム（SYSTEM）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p05">
+  <label class="memo-h" for="ta-jofuhp1-p05">メモ</label>
+  <textarea id="ta-jofuhp1-p05" data-title="5 料金システム（SYSTEM）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p05" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p05" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p06">
+  <h2 class="pg-h"><span class="num">6</span>セラピスト個人ページ（姫神リョウ）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">下部に固定の「予約する」→3択ポップアップ（店LINE／個人LINE／ウェブ予約）</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/himegami.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/himegami.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/himegami.html" title="セラピスト個人ページ（姫神リョウ）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p06">
+  <label class="memo-h" for="ta-jofuhp1-p06">メモ</label>
+  <textarea id="ta-jofuhp1-p06" data-title="6 セラピスト個人ページ（姫神リョウ）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p06" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p06" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p07">
+  <h2 class="pg-h"><span class="num">7</span>セラピスト個人ページ（蓮＝架空サンプル）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">架空5人の型。写真3枚・タグ・料金・Q&amp;A</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/ren.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/ren.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/ren.html" title="セラピスト個人ページ（蓮＝架空サンプル）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p07">
+  <label class="memo-h" for="ta-jofuhp1-p07">メモ</label>
+  <textarea id="ta-jofuhp1-p07" data-title="7 セラピスト個人ページ（蓮＝架空サンプル）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p07" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p07" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p08">
+  <h2 class="pg-h"><span class="num">8</span>在籍セラピスト一覧</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/index.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/index.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/therapist/index.html" title="在籍セラピスト一覧" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p08">
+  <label class="memo-h" for="ta-jofuhp1-p08">メモ</label>
+  <textarea id="ta-jofuhp1-p08" data-title="8 在籍セラピスト一覧" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p08" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p08" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p09">
+  <h2 class="pg-h"><span class="num">9</span>出勤情報（7日タブ）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">タブを押すとその日の出勤に切替。時間はサンプル</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/schedule.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/schedule.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/schedule.html" title="出勤情報（7日タブ）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p09">
+  <label class="memo-h" for="ta-jofuhp1-p09">メモ</label>
+  <textarea id="ta-jofuhp1-p09" data-title="9 出勤情報（7日タブ）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p09" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p09" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p10">
+  <h2 class="pg-h"><span class="num">10</span>ご予約（流れの説明＋電話番号認証つきフォーム）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">ヘッダーのWEB予約はここに飛ぶ。認証は試作（どの6桁でも通る）</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/reserve.html#form" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/reserve.html#form</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/reserve.html#form" title="ご予約（流れの説明＋電話番号認証つきフォーム）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p10">
+  <label class="memo-h" for="ta-jofuhp1-p10">メモ</label>
+  <textarea id="ta-jofuhp1-p10" data-title="10 ご予約（流れの説明＋電話番号認証つきフォーム）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p10" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p10" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p11">
+  <h2 class="pg-h"><span class="num">11</span>ご利用方法（はじめての方へ）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/service.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/service.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/service.html" title="ご利用方法（はじめての方へ）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p11">
+  <label class="memo-h" for="ta-jofuhp1-p11">メモ</label>
+  <textarea id="ta-jofuhp1-p11" data-title="11 ご利用方法（はじめての方へ）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p11" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p11" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p12">
+  <h2 class="pg-h"><span class="num">12</span>よくある質問</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/faq.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/faq.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/faq.html" title="よくある質問" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p12">
+  <label class="memo-h" for="ta-jofuhp1-p12">メモ</label>
+  <textarea id="ta-jofuhp1-p12" data-title="12 よくある質問" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p12" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p12" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p13">
+  <h2 class="pg-h"><span class="num">13</span>安全とプライバシー</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/safety.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/safety.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/safety.html" title="安全とプライバシー" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p13">
+  <label class="memo-h" for="ta-jofuhp1-p13">メモ</label>
+  <textarea id="ta-jofuhp1-p13" data-title="13 安全とプライバシー" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p13" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p13" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p14">
+  <h2 class="pg-h"><span class="num">14</span>お知らせ一覧・記事</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/news/index.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/news/index.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/news/index.html" title="お知らせ一覧・記事" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p14">
+  <label class="memo-h" for="ta-jofuhp1-p14">メモ</label>
+  <textarea id="ta-jofuhp1-p14" data-title="14 お知らせ一覧・記事" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p14" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p14" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p15">
+  <h2 class="pg-h"><span class="num">15</span>お問い合わせ（店LINE・店SNS・メールの3窓口）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">URL・アドレスは準備中表示</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/contact.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/contact.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/contact.html" title="お問い合わせ（店LINE・店SNS・メールの3窓口）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p15">
+  <label class="memo-h" for="ta-jofuhp1-p15">メモ</label>
+  <textarea id="ta-jofuhp1-p15" data-title="15 お問い合わせ（店LINE・店SNS・メールの3窓口）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p15" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p15" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p16">
+  <h2 class="pg-h"><span class="num">16</span>店舗案内・ラブホテル・ポータル・求人案内</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/store.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/store.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/store.html" title="店舗案内・ラブホテル・ポータル・求人案内" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p16">
+  <label class="memo-h" for="ta-jofuhp1-p16">メモ</label>
+  <textarea id="ta-jofuhp1-p16" data-title="16 店舗案内・ラブホテル・ポータル・求人案内" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p16" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p16" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p17">
+  <h2 class="pg-h"><span class="num">17</span>ご利用規約（第1稿・弁護士確認前）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/terms.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/terms.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/terms.html" title="ご利用規約（第1稿・弁護士確認前）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p17">
+  <label class="memo-h" for="ta-jofuhp1-p17">メモ</label>
+  <textarea id="ta-jofuhp1-p17" data-title="17 ご利用規約（第1稿・弁護士確認前）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p17" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p17" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p18">
+  <h2 class="pg-h"><span class="num">18</span>プライバシーポリシー（9/12第1稿の本文）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/privacy.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/privacy.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/privacy.html" title="プライバシーポリシー（9/12第1稿の本文）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p18">
+  <label class="memo-h" for="ta-jofuhp1-p18">メモ</label>
+  <textarea id="ta-jofuhp1-p18" data-title="18 プライバシーポリシー（9/12第1稿の本文）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p18" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p18" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+<section class="pg" id="sec-p19">
+  <h2 class="pg-h"><span class="num">19</span>ハンバーガーメニュー・フッター（全ページ共通）</h2>
+  <div class="pair">
+    <div class="sheet"><p class="item-note">右上の3本線を押してメニュー15項目とスクロールを確認</p><p class="item-open"><a class="open" href="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html" target="_blank" rel="noopener">このページを新しいタブで開く</a><span class="url">https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html</span></p><div class="frame"><iframe src="https://taiki3023-creator.github.io/jofu-hp-proto-5k1g0x/index.html" title="ハンバーガーメニュー・フッター（全ページ共通）" loading="lazy"></iframe></div></div>
+    <div class="memo" data-page="p19">
+  <label class="memo-h" for="ta-jofuhp1-p19">メモ</label>
+  <textarea id="ta-jofuhp1-p19" data-title="19 ハンバーガーメニュー・フッター（全ページ共通）" rows="6" placeholder="この項目の修正指示を書く"></textarea>
+  <p class="st" id="st-p19" aria-live="polite">未入力</p>
+  <div class="rp" id="rp-p19" hidden><span class="rp-tag">Claude</span><span class="rp-text"></span></div>
+</div>
+  </div>
+</section>
+</main>
+<dialog id="all-dialog" aria-labelledby="all-h">
+  <p class="dl-h" id="all-h">書いたメモの一覧</p>
+  <textarea id="all-text" readonly aria-label="書いたメモの一覧"></textarea>
+  <div class="dl-row"><button type="button" id="all-close">閉じる</button></div>
+</dialog>
+<script>
+(function () {
+  var MEMOS = 'memos_jofuhp1', REPLIES = 'replies_jofuhp1', LS = 'memo-jofuhp1-', TA = 'ta-jofuhp1-';
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.memo'));
+  var ids = boxes.map(function (b) { return b.dataset.page; });
+  var state = {}, replies = {}, db = null;
+  function $(id) { return document.getElementById(id); }
+  function lsGet(k) { try { return localStorage.getItem(LS + k) || ''; } catch (e) { return ''; } }
+  function lsSet(k, v) { try { localStorage.setItem(LS + k, v); } catch (e) {} }
+  function hhmm(d) { return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2); }
+  function grow(ta) { ta.style.height = 'auto'; ta.style.height = Math.max(ta.scrollHeight + 2, 150) + 'px'; }
+  function setStatus(id, kind, when, code) {
+    var el = $('st-' + id); if (!el) return;
+    el.className = 'st ' + kind;
+    var t = { empty: '未入力', dirty: '未保存（入力が止まると自動で保存します）', saving: '保存中…',
+      saved: '保存済み' + (when ? ' ' + hhmm(when) : ''), local: 'この端末にだけ保存（Claudeには届きません）',
+      error: '保存できませんでした' + (code ? '（' + code + '）' : '') + '。少し待ってからもう一度入力してください' }[kind];
+    el.textContent = t || '';
+  }
+  function refreshCount() {
+    var n = 0;
+    ids.forEach(function (id) {
+      var has = $(TA + id).value.trim() !== ''; if (has) n++;
+      var nv = $('nv-' + id);
+      if (nv) { nv.classList.toggle('has', has); nv.classList.toggle('done', !!(replies[id] && replies[id].done)); }
+    });
+    $('count').textContent = n;
+  }
+  function save(id) {
+    var s = state[id], ta = $(TA + id), text = ta.value;
+    lsSet(id, text);
+    if (!db) { s.last = text; s.dirty = false; setStatus(id, text.trim() ? 'local' : 'empty'); refreshCount(); return; }
+    if (text === s.last) { s.dirty = false; setStatus(id, text.trim() ? 'saved' : 'empty', s.at); return; }
+    if (s.saving) { s.again = true; return; }
+    s.saving = true; setStatus(id, 'saving');
+    db.doc(MEMOS + '/' + id).set({ page: Number(id.slice(1)), title: ta.dataset.title, text: text, updatedAt: new Date().toISOString() })
+      .then(function () {
+        s.last = text; s.at = new Date(); s.saving = false; s.retried = false; s.dirty = (ta.value !== text);
+        setStatus(id, s.dirty ? 'dirty' : (text.trim() ? 'saved' : 'empty'), s.at); refreshCount();
+        if (s.dirty || s.again) { s.again = false; schedule(id, 400); }
+      })
+      .catch(function (e) {
+        s.saving = false; var code = e && e.code;
+        if (code === 'unavailable' && !s.retried) { s.retried = true; schedule(id, 1500 + Math.random() * 1500); return; }
+        setStatus(id, 'error', null, code);
+      });
+  }
+  function schedule(id, ms) { var s = state[id]; clearTimeout(s.timer); s.timer = setTimeout(function () { save(id); }, ms); }
+  ids.forEach(function (id) {
+    var ta = $(TA + id);
+    state[id] = { last: '', dirty: false, saving: false, again: false, timer: null, at: null, retried: false };
+    var draft = lsGet(id); if (draft && !ta.value) { ta.value = draft; }
+    grow(ta);
+    ta.addEventListener('input', function () { state[id].dirty = true; setStatus(id, 'dirty'); grow(ta); refreshCount(); schedule(id, 900); });
+    ta.addEventListener('blur', function () { if (state[id].dirty) { clearTimeout(state[id].timer); save(id); } });
+    setStatus(id, ta.value.trim() ? 'dirty' : 'empty');
+  });
+  refreshCount();
+  $('show-all').addEventListener('click', function () {
+    var out = [];
+    ids.forEach(function (id) { var ta = $(TA + id), v = ta.value.trim(); if (v) out.push('【' + ta.dataset.title + '】\n' + v); });
+    $('all-text').value = out.length ? out.join('\n\n') : 'まだメモがありません。';
+    $('all-dialog').showModal(); $('all-text').focus(); $('all-text').select();
+  });
+  $('all-close').addEventListener('click', function () { $('all-dialog').close(); });
+  function sync(kind, text) { var el = $('sync'); el.className = kind; el.textContent = text; }
+  function start(ns) {
+    db = ns;
+    if (!db) { sync('ng', 'この画面では保存先につながっていません'); $('banner').hidden = false;
+      ids.forEach(function (id) { setStatus(id, $(TA + id).value.trim() ? 'local' : 'empty'); }); return; }
+    sync('ok', '自動保存オン');
+    db.collection(MEMOS).onSnapshot(function (snap) {
+      var seen = {};
+      snap.docs.forEach(function (d) {
+        var id = d.id, s = state[id]; if (!s) return; seen[id] = true;
+        var data = d.data() || {}, text = typeof data.text === 'string' ? data.text : ''; var ta = $(TA + id);
+        if (document.activeElement === ta || s.dirty || s.saving) return;
+        if (ta.value !== text) { ta.value = text; grow(ta); lsSet(id, text); }
+        s.last = text; s.at = data.updatedAt ? new Date(data.updatedAt) : null;
+        setStatus(id, text.trim() ? 'saved' : 'empty', s.at);
+      });
+      ids.forEach(function (id) { var ta = $(TA + id), s = state[id];
+        if (!seen[id] && ta.value.trim() && !s.saving && ta.value !== s.last) { s.dirty = true; schedule(id, 200); } });
+      refreshCount();
+    }, function (e) { sync('ng', '保存先との接続が切れました（' + ((e && e.code) || '不明') + '）。ページを開き直してください'); });
+    db.collection(REPLIES).onSnapshot(function (snap) {
+      snap.docs.forEach(function (d) {
+        var el = $('rp-' + d.id); if (!el) return; var data = d.data() || {}; replies[d.id] = data;
+        var txt = (data.done ? '対応済み。' : '') + (typeof data.text === 'string' ? data.text : '');
+        el.hidden = !txt; el.classList.toggle('done', !!data.done); el.querySelector('.rp-text').textContent = txt;
+      });
+      refreshCount();
+    }, function () {});
+  }
+  if (window.claude && typeof window.claude.use === 'function') { window.claude.use('db').then(start, function () { start(null); }); }
+  else { start(null); }
+})();
+</script>
+</body></html>
