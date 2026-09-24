@@ -75,8 +75,15 @@ ul{padding:0;list-style:none}
 .video__cap .video__l1{font-size:12px;color:#7a7a7a}
 .video__cap .video__l2{font-size:18px;font-weight:700;letter-spacing:.04em;margin-top:2px}
 .video__cap .video__l3{font-size:12px;margin-top:2px;color:#4a4a4a}
-.video__yt{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;min-height:40px;color:var(--ink)}
-.video__yt svg{width:16px;height:16px}
+.video__wrap{position:relative;background:#000}
+.video__mute{position:absolute;right:12px;bottom:14px;display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,.6);color:#fff;border:1.5px solid rgba(255,255,255,.85);border-radius:999px;padding:8px 14px;min-height:40px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.video__mute[aria-pressed="true"]{background:#fff;color:#111;border-color:#fff}
+.video__mute-ic{display:inline-grid;place-items:center;width:18px;height:18px}
+.video__mute-ic svg{width:18px;height:18px}
+.video__pp{position:absolute;left:12px;bottom:14px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;border:1.5px solid rgba(255,255,255,.85);display:grid;place-items:center;cursor:pointer;padding:0}
+.video__pp svg{width:20px;height:20px}
+.video__bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.25)}
+.video__bar-in{height:100%;width:0;background:#fff}
 .tp .video{margin:24px -16px 0}
 .tp .video__cap{text-align:center}
 .video__box{display:block;max-width:660px;margin:0 auto;aspect-ratio:16/9;background:#1b1611;position:relative;overflow:hidden;color:#fff}
@@ -429,7 +436,6 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 .video{background:#000;padding:0}
 .video__cap{background:var(--light)}
 .video__l2{font-weight:700;letter-spacing:.06em}
-.video__yt{border-color:var(--ink);color:var(--ink)}
 /* sections */
 .sec{padding:64px 16px 72px}
 .sec--light{background:var(--light);background-image:none}
@@ -586,16 +592,31 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
   <p class="tp__std"><a class="btn-std" href="himegami_std.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12h8M9 16h8" stroke="currentColor" stroke-width="2"/></svg> 性病検査結果（準備中）</a></p>
   
 <section class="video" id="service">
-  <video class="video__el" autoplay muted loop playsinline preload="metadata" poster="../video/hero_poster.jpg" aria-label="夜の世界のリアルを赤裸々告白">
-    <source src="../video/hero.mp4" type="video/mp4">
-  </video>
+  <div class="video__wrap">
+    <video class="video__el" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="../video/hero_poster.jpg" aria-label="夜の世界のリアルを赤裸々告白">
+      <source src="../video/hero.mp4" type="video/mp4">
+    </video>
+    <button class="video__mute" id="hero-mute" type="button" aria-pressed="false" aria-label="音声をオンにする"><span class="video__mute-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><span class="video__mute-t">音声を出す</span></button>
+    <button class="video__pp" id="hero-pp" type="button" aria-label="一時停止"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg></button>
+    <div class="video__bar"><div class="video__bar-in" id="hero-bar"></div></div>
+  </div>
   <div class="video__cap">
     <p class="video__l1">姫神ちゃんねる（仮）</p>
     <p class="video__l2">夜の世界のリアルを赤裸々告白</p>
-    <p class="video__l3">〈ぶーちゃんねる コラボ 後編〉</p>
-    <a class="video__yt" href="https://www.youtube.com/watch?v=KCsNYeYPfYQ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg> 音声つきで全編を見る（YouTube・2026.09.20 公開）</a>
+    <p class="video__l3">〈ぶーちゃんねる コラボ 後編〉　2026.09.20 公開</p>
   </div>
 </section>
+<script>
+(function(){var v=document.getElementById('hero-video'),m=document.getElementById('hero-mute'),p=document.getElementById('hero-pp'),b=document.getElementById('hero-bar');if(!v)return;
+var IC_ON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 8a5 5 0 0 1 0 8M18.5 5.5a8.5 8.5 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',IC_OFF='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',IC_PL='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>',IC_PA='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" fill="currentColor"/><rect x="14" y="5" width="4" height="14" fill="currentColor"/></svg>';
+function paint(){var on=!v.muted;m.setAttribute('aria-pressed',on?'true':'false');m.setAttribute('aria-label',on?'音声を消す':'音声をオンにする');m.querySelector('.video__mute-ic').innerHTML=on?IC_ON:IC_OFF;m.querySelector('.video__mute-t').textContent=on?'音声を消す':'音声を出す';p.innerHTML=v.paused?IC_PL:IC_PA;p.setAttribute('aria-label',v.paused?'再生':'一時停止')}
+m.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted&&v.paused){v.play()}paint()});
+p.addEventListener('click',function(){if(v.paused){v.play()}else{v.pause()}paint()});
+v.addEventListener('play',paint);v.addEventListener('pause',paint);v.addEventListener('volumechange',paint);
+v.addEventListener('timeupdate',function(){if(v.duration){b.style.width=(v.currentTime/v.duration*100)+'%'}});
+document.addEventListener('visibilitychange',function(){if(document.hidden){v.muted=true;paint()}});
+paint();})();
+</script>
 
   <div class="prs">
         <details class="pr" open>

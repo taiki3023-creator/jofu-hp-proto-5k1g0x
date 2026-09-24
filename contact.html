@@ -75,8 +75,15 @@ ul{padding:0;list-style:none}
 .video__cap .video__l1{font-size:12px;color:#7a7a7a}
 .video__cap .video__l2{font-size:18px;font-weight:700;letter-spacing:.04em;margin-top:2px}
 .video__cap .video__l3{font-size:12px;margin-top:2px;color:#4a4a4a}
-.video__yt{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px;min-height:40px;color:var(--ink)}
-.video__yt svg{width:16px;height:16px}
+.video__wrap{position:relative;background:#000}
+.video__mute{position:absolute;right:12px;bottom:14px;display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,.6);color:#fff;border:1.5px solid rgba(255,255,255,.85);border-radius:999px;padding:8px 14px;min-height:40px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.video__mute[aria-pressed="true"]{background:#fff;color:#111;border-color:#fff}
+.video__mute-ic{display:inline-grid;place-items:center;width:18px;height:18px}
+.video__mute-ic svg{width:18px;height:18px}
+.video__pp{position:absolute;left:12px;bottom:14px;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;border:1.5px solid rgba(255,255,255,.85);display:grid;place-items:center;cursor:pointer;padding:0}
+.video__pp svg{width:20px;height:20px}
+.video__bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.25)}
+.video__bar-in{height:100%;width:0;background:#fff}
 .tp .video{margin:24px -16px 0}
 .tp .video__cap{text-align:center}
 .video__box{display:block;max-width:660px;margin:0 auto;aspect-ratio:16/9;background:#1b1611;position:relative;overflow:hidden;color:#fff}
@@ -429,7 +436,6 @@ body{font-weight:500;letter-spacing:.04em;line-height:1.7}
 .video{background:#000;padding:0}
 .video__cap{background:var(--light)}
 .video__l2{font-weight:700;letter-spacing:.06em}
-.video__yt{border-color:var(--ink);color:var(--ink)}
 /* sections */
 .sec{padding:64px 16px 72px}
 .sec--light{background:var(--light);background-image:none}
